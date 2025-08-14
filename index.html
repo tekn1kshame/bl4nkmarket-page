@@ -2,99 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bl4nk Market Preview</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Blank Market Preview</title>
   <style>
-    /* Full page dark background with gradient animation */
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
-      background-size: 600% 600%;
-      animation: gradientBG 15s ease infinite;
-      font-family: 'Montserrat', sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+    /* Reset & Body */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html {
+      height:100%; width:100%;
+      font-family: 'Orbitron', sans-serif;
+      overflow:hidden;
+      background:#0d0d0d;
+      color:#fff;
+      display:flex; justify-content:center; align-items:center;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    /* Particle canvas */
+    canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
 
-    /* Popup card */
+    /* Popup */
     .popup {
-      background: rgba(0,0,0,0.85);
-      border-radius: 16px;
-      padding: 40px 50px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0,255,255,0.3);
-      max-width: 500px;
-      color: #fff;
+      position:relative;
+      z-index:1;
+      background: rgba(10,10,10,0.95);
+      padding:40px;
+      border-radius:16px;
+      text-align:center;
+      box-shadow: 0 0 50px rgba(0,255,255,0.4);
+      max-width:500px;
       animation: popupFade 1s ease forwards;
     }
 
-    @keyframes popupFade {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes popupFade { from {opacity:0; transform:scale(0.7);} to {opacity:1; transform:scale(1);} }
+
+    .popup h1 {
+      font-size:2rem;
+      margin-bottom:15px;
+      display:flex; justify-content:center; align-items:center;
     }
 
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 15px;
-      background: linear-gradient(90deg, #00fff0, #ff00ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .popup h1 span {
+      font-size:2.5rem;
+      margin-right:10px;
+      animation: floatIcon 2s infinite ease-in-out;
     }
 
-    p {
-      font-size: 1.1em;
-      margin-bottom: 25px;
-      color: #ccc;
-    }
-
-    /* Cool gradient button with hover effect */
-    a.button {
-      display: inline-block;
-      padding: 15px 35px;
-      font-size: 1.1em;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 50px;
-      background: linear-gradient(90deg, #ff6ec4, #7873f5);
-      color: #fff;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    a.button:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-      background: linear-gradient(90deg, #7873f5, #ff6ec4);
-    }
-
-    /* Optional subtle floating icon above text */
-    .icon {
-      font-size: 3em;
-      margin-bottom: 20px;
-      color: #00fff0;
-      animation: float 2s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
+    @keyframes floatIcon {
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
+    }
+
+    .popup p {
+      font-size:1rem;
+      margin-bottom:25px;
+      line-height:1.5;
+    }
+
+    .popup .button {
+      display:inline-block;
+      padding:14px 28px;
+      font-size:1rem;
+      background: linear-gradient(45deg,#00fff0,#0ff);
+      border:none;
+      border-radius:8px;
+      color:#000;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow: 0 0 20px rgba(0,255,255,0.6);
+      transition: all 0.3s ease;
+    }
+
+    .popup .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(0,255,255,0.9);
+    }
+
+    /* Branding */
+    .branding {
+      position:absolute;
+      bottom:20px;
+      right:20px;
+      font-size:1rem;
+      color: rgba(0,255,255,0.5);
+      font-weight:700;
+      z-index:1;
     }
   </style>
 </head>
 <body>
+
+  <!-- Particle Canvas -->
+  <canvas id="particles"></canvas>
+
   <div class="popup">
-    <div class="icon">⚡</div>
-    <h1>You're Almost There!</h1>
-    <p>Next page will describe this as a "guide." Just click below to continue and unlock the content.</p>
-    <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Continue</a>
+    <h1><span>⚡</span> Almost there!</h1>
+    <p>
+      Next page will describe this as a guide 😉.<br>
+      This is a bypass for Stripe since Digital Strategy Guide is just the listed name.<br>
+      Just click below to <strong>purchase</strong> and unlock the content.
+    </p>
+    <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Purchase</a>
   </div>
+
+  <div class="branding">bl4nk</div>
+
+  <script>
+    // Particle animation
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+
+    function initParticles() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      particlesArray = [];
+      for(let i=0;i<100;i++){
+        particlesArray.push({
+          x: Math.random()*canvas.width,
+          y: Math.random()*canvas.height,
+          size: Math.random()*3 + 1,
+          speedX: (Math.random()-0.5)*1.5,
+          speedY: (Math.random()-0.5)*1.5
+        });
+      }
+    }
+
+    function animateParticles(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particlesArray.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fillStyle='rgba(0,255,255,0.7)';
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        // Wrap around
+        if(p.x<0) p.x = canvas.width;
+        if(p.x>canvas.width) p.x =0;
+        if(p.y<0) p.y = canvas.height;
+        if(p.y>canvas.height) p.y=0;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', initParticles);
+
+    initParticles();
+    animateParticles();
+  </script>
 </body>
 </html>
