@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .popup {
+      background: #222;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h1>Almost there!</h1>
+    <p>You’re about to be redirected to the checkout.</p>
+    <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Go Now</a>
+  </div>
+
+  <script>
+    // Automatically redirect after 5 seconds
+    setTimeout(function() {
+      window.location.href = "https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00";
+    }, 5000);
+  </script>
+</body>
+</html>
