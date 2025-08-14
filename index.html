@@ -27,11 +27,11 @@ canvas#particles {
 h1.header {
   text-align: center;
   margin-top: 50px;
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #b14ff7;
-  text-shadow: 0 0 20px #b14ff7, 0 0 40px #9d00ff, 0 0 60px #b14ff7;
-  z-index: 2;
+  text-shadow: 0 0 20px #b14ff7, 0 0 40px #9d00ff;
   position: relative;
+  z-index: 2;
 }
 
 /* Popup */
@@ -80,10 +80,10 @@ a.button:hover {
   transform: scale(1.08);
 }
 
-/* Spinning abstract icons */
+/* Spinning pentagram emoji */
 .icon {
-  width: 60px;
-  height: 60px;
+  font-size: 4rem;
+  display: block;
   margin: 0 auto 25px;
   animation: spin 3s linear infinite;
 }
@@ -91,19 +91,6 @@ a.button:hover {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-/* Small watermark text behind popup */
-.watermark {
-  position: absolute;
-  font-size: 8rem;
-  color: rgba(255, 255, 255, 0.02);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-30deg);
-  pointer-events: none;
-  z-index: 1;
-  user-select: none;
 }
 
 /* Footer note */
@@ -115,23 +102,6 @@ a.button:hover {
   z-index: 2;
   position: relative;
 }
-
-/* Additional floating shapes */
-.shape {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #b14ff7;
-  opacity: 0.7;
-  animation: floaty 5s infinite ease-in-out;
-}
-
-@keyframes floaty {
-  0% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-50px) translateX(20px); }
-  100% { transform: translateY(0) translateX(0); }
-}
 </style>
 </head>
 <body>
@@ -141,18 +111,14 @@ a.button:hover {
 <h1 class="header">bl4nk Market</h1>
 
 <div class="popup">
-  <div class="watermark">bl4nk</div>
-  <svg class="icon" viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="20" stroke="#b14ff7" stroke-width="4" fill="none" />
-    <polygon points="50,30 60,60 40,60" fill="#b14ff7"/>
-  </svg>
-  <h2>Preview Access</h2>
-  <p>Next page will describe this as a guide 😉. “Bypass Strategy Guide” is just the listed name for this preview. Click below to purchase and unlock the content.</p>
-  <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Purchase</a>
+  <div class="icon">🔯</div>
+  <h2>Digital Strategy Guide</h2>
+  <p>This is a preview page. Click below to purchase your Roblox / Blockspin accounts.</p>
+  <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Purchase Your Accounts</a>
 </div>
 
 <div class="bottom-note">
-  ⚡ Fun tip: This is a preview page with all the bl4nk vibes ✨
+  Preview powered by bl4nk Market ⚡
 </div>
 
 <script>
@@ -188,17 +154,6 @@ a.button:hover {
     requestAnimationFrame(animate);
   }
   animate();
-
-  // Floating shapes
-  for(let i=0;i<30;i++){
-    const shape = document.createElement('div');
-    shape.className = 'shape';
-    shape.style.top = Math.random() * window.innerHeight + 'px';
-    shape.style.left = Math.random() * window.innerWidth + 'px';
-    shape.style.width = shape.style.height = (5 + Math.random()*10) + 'px';
-    shape.style.animationDuration = (3 + Math.random()*5) + 's';
-    document.body.appendChild(shape);
-  }
 </script>
 
 </body>
