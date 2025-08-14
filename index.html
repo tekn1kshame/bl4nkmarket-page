@@ -5,11 +5,9 @@
   <title>BL4NK Market</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset and basic */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html { height: 100%; width: 100%; font-family: 'Montserrat', sans-serif; overflow: hidden; }
 
-    /* Background gradient */
     body {
       background: linear-gradient(135deg, #2e004f, #5f00ff);
       position: relative;
@@ -20,7 +18,6 @@
       color: #fff;
     }
 
-    /* Particles canvas */
     #particles {
       position: fixed;
       top: 0;
@@ -30,7 +27,6 @@
       z-index: -1;
     }
 
-    /* Header */
     h1#siteTitle {
       font-size: 3rem;
       margin-bottom: 40px;
@@ -38,7 +34,6 @@
       text-shadow: 0 0 15px #b19cd9, 0 0 30px #9b59b6;
     }
 
-    /* Popup box */
     .popup {
       background: rgba(18, 0, 36, 0.85);
       padding: 40px 50px;
@@ -80,21 +75,6 @@
       box-shadow: 0 0 25px #e0b3ff;
     }
 
-    /* Spinning star */
-    .star {
-      position: absolute;
-      font-size: 2rem;
-      color: #ff99ff;
-      animation: spin 6s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg) translateX(0px); }
-      50% { transform: rotate(180deg) translateX(10px); }
-      100% { transform: rotate(360deg) translateX(0px); }
-    }
-
-    /* Bottom note */
     .note {
       position: absolute;
       bottom: 15px;
@@ -109,25 +89,20 @@
 
   <canvas id="particles"></canvas>
 
-  <!-- Header -->
   <h1 id="siteTitle">BL4NK Market</h1>
 
-  <!-- Popup box -->
   <div class="popup">
     <h2>☆ Almost there!</h2>
-    <p>Next page will describe this as a Digital Strategy Guide. This is a preview / redirect page.</p>
+    <p>
+      Next page will say you're buying a "Digital Strategy Guide".<br>
+      This is just a cover-up so I don't get flagged by Stripe.<br>
+      Next page will redirect you to where you can buy the accounts.
+    </p>
     <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Purchase</a>
   </div>
 
-  <!-- Floating star -->
-  <div class="star" style="top:20%; left:10%;">☆</div>
-  <div class="star" style="top:40%; left:80%;">☆</div>
-  <div class="star" style="top:70%; left:50%;">☆</div>
+  <div class="note">This is just a preview page for provided by bl4nk.</div>
 
-  <!-- Bottom note -->
-  <div class="note">This is a preview / redirect page for BL4NK Market</div>
-
-  <!-- Particles JS -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
     particlesJS("particles", {
