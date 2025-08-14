@@ -15,8 +15,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center; /* Centers vertically */
+      justify-content: center;
       text-align: center;
+      /* Neon purple border & glow */
+      border: 3px solid #a020f0;
+      box-shadow:
+        0 0 10px #a020f0,
+        0 0 20px #a020f0,
+        0 0 40px #a020f0,
+        0 0 80px #a020f0;
     }
     canvas { position: fixed; top:0; left:0; z-index:-1; }
 
@@ -120,11 +127,9 @@
     }
 
     function animate() {
-      // Black background behind particles
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, width, height);
 
-      // Draw particles
       for(let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
         particlesArray[i].draw();
