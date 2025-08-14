@@ -1,112 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Almost There!</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  <meta charset="UTF-8">
+  <title>Bl4nk Market Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Full page dark background with gradient animation */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1b1b2f, #3e3e5e);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  body::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: moveBg 20s linear infinite;
-  }
+    /* Popup card */
+    .popup {
+      background: rgba(0,0,0,0.85);
+      border-radius: 16px;
+      padding: 40px 50px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,255,255,0.3);
+      max-width: 500px;
+      color: #fff;
+      animation: popupFade 1s ease forwards;
+    }
 
-  @keyframes moveBg {
-    0% { transform: translate(0,0); }
-    100% { transform: translate(-50px,-50px); }
-  }
+    @keyframes popupFade {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-  .popup {
-    position: relative;
-    background: rgba(30,30,40,0.95);
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(0,0,0,0.7);
-    transform: translateY(-10px);
-    animation: floatPopup 2s ease-in-out infinite alternate;
-    z-index: 2;
-  }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #00fff0, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  @keyframes floatPopup {
-    0% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-  }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 25px;
+      color: #ccc;
+    }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #ffdd57;
-    text-shadow: 0 0 8px #ffdd57;
-  }
+    /* Cool gradient button with hover effect */
+    a.button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5);
+      color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
-  p {
-    font-size: 1.1rem;
-    color: #ddd;
-    margin-bottom: 25px;
-  }
+    a.button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      background: linear-gradient(90deg, #7873f5, #ff6ec4);
+    }
 
-  .button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    color: #fff;
-    background: #4caf50;
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
+    /* Optional subtle floating icon above text */
+    .icon {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #00fff0;
+      animation: float 2s ease-in-out infinite;
+    }
 
-  .button:hover {
-    background: #45a049;
-    box-shadow: 0 0 20px #4caf50;
-    transform: translateY(-3px);
-  }
-
-  .button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255,255,255,0.15);
-    transform: rotate(45deg);
-    transition: 0.5s;
-  }
-
-  .button:hover::after {
-    top: 0;
-    left: 0;
-  }
-
-</style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
 <body>
   <div class="popup">
-    <h1>Almost there!</h1>
-    <p>Next page will describe this as a guide. Click below to continue.</p>
-    <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00" target="_blank">Go Now</a>
+    <div class="icon">⚡</div>
+    <h1>You're Almost There!</h1>
+    <p>Next page will describe this as a "guide." Just click below to continue and unlock the content.</p>
+    <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Continue</a>
   </div>
 </body>
 </html>
