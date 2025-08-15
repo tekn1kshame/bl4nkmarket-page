@@ -88,6 +88,17 @@
 
     a.button:hover { transform: scale(1.05); box-shadow: 0 0 25px #e0b3ff; }
 
+    .alert-box {
+      margin-top: 25px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #ff4d4d, #cc0000);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #ff4d4d;
+    }
+
     .note {
       position: absolute;
       bottom: 15px;
@@ -111,13 +122,30 @@
         This is just a cover-up so I don't get flagged by Stripe.<br>
         Next page will redirect you to where you buy the accounts with the purchase button.
       </p>
-      <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Purchase</a>
+      <div id="paymentArea"></div>
     </div>
 
     <div class="note">This is a preview / redirect page for BL4NK Market</div>
   </div>
 
   <script>
+    // ===== TOGGLE PAYMENT MODE HERE =====
+    const paymentsPaused = true; // true = show alert, false = show purchase button
+
+    const paymentArea = document.getElementById('paymentArea');
+    if (paymentsPaused) {
+      paymentArea.innerHTML = `
+        <div class="alert-box">
+          💵 Accepting CashApp only right now — message us in Discord
+        </div>
+      `;
+    } else {
+      paymentArea.innerHTML = `
+        <a class="button" href="https://pay.bl4nkmarket.com/b/3cI7sNgi33vOfsN5uFgYU00">Purchase</a>
+      `;
+    }
+
+    // Particle background code
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
